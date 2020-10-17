@@ -5,3 +5,13 @@
 To run any of these scripts, in terminal command line enter: `node script-name.js`
 
 <br />
+
+## 1. Create a HashMap class
+
+
+
+
+
+<br />
+
+## 2.
