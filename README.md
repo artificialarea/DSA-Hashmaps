@@ -8,7 +8,7 @@ To run any of these scripts, in terminal command line enter: `node script-name.j
 
 ## 1. Create a HashMap class
 
-see: **`hashmap.js`**(https://github.com/artificialarea/DSA-Hashmaps/blob/main/hashmap.js) + **`HashMaps_drills.js`**(https://github.com/artificialarea/DSA-Hashmaps/blob/main/HashMaps_drills.js)
+see: **[`hashmap.js`](https://github.com/artificialarea/DSA-Hashmaps/blob/main/hashmap.js)** + **[`HashMaps_drills.js`](https://github.com/artificialarea/DSA-Hashmaps/blob/main/HashMaps_drills.js)**
 
 <br />
 
@@ -20,8 +20,8 @@ Points of confusion:
 
 * Why hasn't the open addressing worked for adding the second key values of `Hobbit` and `Maiar`?
 
-* Why is the second value for a particular item/key in the Hash Table? I would have thought that value would have been rejected due to collision with the initial set value for that item?
-    * Answer: Couldn't find it, per se... but it appears without the use of open addressing or chaining the value of the key is forced to be replaced?
+* Why is the second value for a particular item/key replaced the first initial value in the Hash Table? I would have thought that value would have been rejected due to collision with the initial set value for that item?
+    * Answer: Couldn't find it, per se... but it appears without the (explicit?) use of open addressing or chaining the value of the key is forced to be replaced?
 
 Output
 ```
@@ -69,8 +69,6 @@ HashMap {
   ],
   _capacity: 8,
   _deleted: 0,
-  MAX_LOAD_RATIO: 0.5,
-  SIZE_RATIO: 3
 }
 ```
 
