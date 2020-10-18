@@ -4,6 +4,8 @@ class HashMap {
         this._hashTable = [];
         this._capacity = initialCapacity;
         this._deleted = 0;
+        this.MAX_LOAD_RATIO = 0.5;
+        this.SIZE_RATIO = 3;
     }
 
     get(key) {
@@ -17,8 +19,8 @@ class HashMap {
     set(key, value){
         // [f3] check maximum load ratio
         const loadRatio = (this.length + this._deleted + 1) / this._capacity;
-        if (loadRatio > HashMap.MAX_LOAD_RATIO) {
-            this._resize(this._capacity * HashMap.SIZE_RATIO);
+        if (loadRatio > this.MAX_LOAD_RATIO) {
+            this._resize(this._capacity * this.SIZE_RATIO);
         }
         //Find the slot where this key should be in
         const index = this._findSlot(key);
@@ -76,6 +78,7 @@ class HashMap {
         }
     }
 
+    /* "The hash function described in this lesson (_hashString(string)) uses the ASCII value of the characters in the string, adds them together, and uses other information to get a better distribution in the hash table." */
     static _hashString(string) {
         let hash = 5381;
         for (let i = 0; i < string.length; i++) {

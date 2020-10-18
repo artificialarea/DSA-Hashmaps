@@ -6,6 +6,7 @@ function main() {
     lotr.MAX_LOAD_RATIO = 0.5;
     lotr.SIZE_RATIO = 3;
 
+    // 1. add items to hashmap
     let addItems = [
         {'Hobbit': 'Bilbo'}, 
         {'Hobbit': 'Frodo'},
@@ -26,8 +27,15 @@ function main() {
         }
     });
 
-    console.log(lotr);
+    // 2. retreive the values of...
+    lotr.get('Maiar');
+    lotr.get('Hobbit');
+    console.log(lotr.get('Maiar'));
+    console.log(lotr.get('Hobbit'));
 
+    console.log(lotr);
+    return lotr;
 }
 
 main();
+// console.log(main());
