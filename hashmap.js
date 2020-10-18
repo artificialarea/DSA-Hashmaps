@@ -1,5 +1,5 @@
 class HashMap {
-    constructor(initialCapacity=8) {
+    constructor(initialCapacity = 15) {
         this.length = 0;
         this._hashTable = [];
         this._capacity = initialCapacity;
@@ -11,7 +11,8 @@ class HashMap {
     get(key) {
         const index = this._findSlot(key);
         if (this._hashTable[index] === undefined) {
-            throw new Error('Key error');
+            return null;
+            // throw new Error('Key error');
         }
         return this._hashTable[index].value;
     }
@@ -19,8 +20,10 @@ class HashMap {
     set(key, value){
         // [f3] check maximum load ratio
         const loadRatio = (this.length + this._deleted + 1) / this._capacity;
-        if (loadRatio > this.MAX_LOAD_RATIO) {
-            this._resize(this._capacity * this.SIZE_RATIO);
+        // if (loadRatio > this.MAX_LOAD_RATIO) {
+        if (loadRatio > HashMap.MAX_LOAD_RATIO) {
+            // this._resize(this._capacity * this.SIZE_RATIO);
+            this._resize(this._capacity * HashMap.SIZE_RATIO);
         }
         //Find the slot where this key should be in
         const index = this._findSlot(key);
@@ -52,11 +55,12 @@ class HashMap {
     _findSlot(key) {
         const hash = HashMap._hashString(key);
         const start = hash % this._capacity;
-
         // We use a for loop to avoid collisions by open addressing
-        for (let i=start; i < start + this._capacity; i++) {
+        for (let i = start; i < start + this._capacity; i++) {
             const index = i % this._capacity;
             const slot = this._hashTable[index];
+            // console.log('index: ', index);
+            // console.log('slot: ', slot);
             if (slot === undefined || (slot.key === key && !slot.DELETED)) {
                 return index;
             }

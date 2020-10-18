@@ -8,7 +8,7 @@ To run any of these scripts, in terminal command line enter: `node script-name.j
 
 ## 1. Create a HashMap class
 
-see: **[`hashmap.js`](https://github.com/artificialarea/DSA-Hashmaps/blob/main/hashmap.js)** + **[`HashMaps_drills.js`](https://github.com/artificialarea/DSA-Hashmaps/blob/main/HashMaps_drills.js)**
+see: **[`hashmap.js`](https://github.com/artificialarea/DSA-Hashmaps/blob/main/hashmap.js)** + **[`lord-of-the-rings.js`](https://github.com/artificialarea/DSA-Hashmaps/blob/main/lord-of-the-rings.js)**
 
 <br />
 
@@ -111,3 +111,9 @@ Draw...
 2 ] Show your hash map after the insertion of the keys 5, 28, 19, 15, 20, 33, 12, 17, 10 into the hash map with collisions resolved by separate chaining. Let the hash table have a length m = 9, and let the hash function be k mod m.
 
 ![3.2](./images/hashmap_chaining.jpg)
+
+
+
+<br />
+
+## 4. Remove duplicates
