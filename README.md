@@ -16,7 +16,7 @@ see: **[`hashmap.js`](https://github.com/artificialarea/DSA-Hashmaps/blob/main/h
 
 Points of confusion:
 
-* Why hasn't the open addressing worked for hashing / adding the second key values of `Hobbit` and `Maiar`? Doesn't the occur automatically or do I need to be explicit in the code?
+* Why hasn't the open addressing resolved instancesof collision? It should be hashing / adding the second key values of `Hobbit` and `Maiar` to the next availble empty item? Perhaps there is something missing in my class method or helper?
 
 
 Output
