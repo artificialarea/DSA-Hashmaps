@@ -12,12 +12,7 @@ see: **[`hashmap.js`](https://github.com/artificialarea/DSA-Hashmaps/blob/main/h
 
 <br />
 
-**Print your hash map and notice the length and items that are hashed in your hash map. Have you hashed all the items you were asked to? What are the values of Maiar and Hobbit that you have? Is there a discrepancy?** Discrepancy? Yes. The length of the Hash Map should be 11, not 9. Instances where there are two items/values with the same `key` -- `Hobbit` and `Maiar` -- only one of their values is displayed, presumably due to collision. Confused why the items weren't hashed/added to an empty slot further along in the array with open addressing... and why their respective second set values actually replaced the first values in the original slots?
-
-Points of confusion:
-
-* Why hasn't the open addressing resolved instancesof collision? It should be hashing / adding the second key values of `Hobbit` and `Maiar` to the next availble empty item? Perhaps there is something missing in my class method or helper?
-
+**Print your hash map and notice the length and items that are hashed in your hash map. Have you hashed all the items you were asked to? What are the values of Maiar and Hobbit that you have? Is there a discrepancy?** Discrepancy? Yes: 11 items were set, but only 9 remain. Although different keys can share the same hash value, a key is unique, so there can only be one value for the keys `Hobbit` and `Maiar`. The second value set to the table replaces the first value.
 
 Output
 ```js
@@ -48,7 +43,7 @@ HashMap {
 
 ```
 
-Btw, initial output _without_ maximum load ratio
+Btw, initial output _without_ maximum load ratio, the length exceed capacity
 ```js
 HashMap {
   length: 9,
@@ -106,6 +101,8 @@ Draw...
 
 1 ] Show your hash map after the insertion of keys 10, 22, 31, 4, 15, 28, 17, 88, 59 into a hash map of length 11 using open addressing and a hash function k mod m, where k is the key and m is the length.
 
+attempted to emulate diagram in code output, but was unable: **[`open-addressing-example.js`](https://github.com/artificialarea/DSA-Hashmaps/blob/main/open-addressing-example.js)**
+
 ![3.1](./images/hashmap_open_address.jpg)
 
 2 ] Show your hash map after the insertion of the keys 5, 28, 19, 15, 20, 33, 12, 17, 10 into the hash map with collisions resolved by separate chaining. Let the hash table have a length m = 9, and let the hash function be k mod m.
@@ -115,5 +112,3 @@ Draw...
 
 
 <br />
-
-## 4. Remove duplicates

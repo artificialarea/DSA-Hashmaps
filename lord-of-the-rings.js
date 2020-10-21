@@ -28,13 +28,14 @@ function main() {
     });
 
     // 2. retreive the values of...
-    lotr.get('Maiar');
-    lotr.get('Hobbit');
-    console.log(lotr.get('Maiar'));
-    console.log(lotr.get('Hobbit'));
+    // lotr.get('Maiar');
+    // lotr.get('Hobbit');
+    // console.log(lotr.get('Maiar'));
+    // console.log(lotr.get('Hobbit'));
 
+    console.log(addItems);
     console.log(lotr);
-    return lotr;
+    // return lotr;
 }
 
 main();

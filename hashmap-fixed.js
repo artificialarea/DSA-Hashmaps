@@ -4,8 +4,6 @@ class HashMap {
         this._hashTable = [];
         this._capacity = initialCapacity;
         this._deleted = 0;
-        // this.MAX_LOAD_RATIO = 0.5;
-        // this.SIZE_RATIO = 3;
     }
 
     get(key) {
@@ -25,19 +23,9 @@ class HashMap {
     // this.MAX_LOAD_RATIO
     // this.SIZE_RATIO
     set(key, value){
-        // [f3] check maximum load ratio
-        const loadRatio = (this.length + this._deleted + 1) / this._capacity;
-
-        if (loadRatio > this.MAX_LOAD_RATIO) {  
-            this._resize(this._capacity * this.SIZE_RATIO); 
-        }
-        // previously from Thinkful (didn't work)
-        // if (loadRatio > HashMap.MAX_LOAD_RATIO) {
-        //     this._resize(this._capacity * HashMap.SIZE_RATIO); 
-        // }
-        
         //Find the slot where this key should be in
         const index = this._findSlot(key);
+        console.log(index, key)
 
         if(!this._hashTable[index]){
             this.length++;
@@ -115,26 +103,3 @@ class HashMap {
 }
 
 module.exports = HashMap;
-
-
-// FOOTNOTES
-
-// Left shift operator (<<) 
-// https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Left_shift
-
-// Unsigned right shift operator (>>>)
-// https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Unsigned_right_shift
-
-// [f3]
-// Check maximum load ratio
-// Notice that we have two attributes there MAX_LOAD_RATIO and SIZE_RATIO. Using MAX_LOAD_RATIO, we keep track of how full the hashmap is. When it is a certain % full, we move to a bigger hash table using the SIZE_RATIO so we reduce the number of collisions. By having a maximum load ratio you can minimize the chances that a value ends up a long way away from its hash position due to the slots being almost totally full. This helps to improve the performance of value retrieval.
-// This has an O(1) best and average case, and an O(n) worst case (if collision takes place).
-
-// [f4]
-// "Resizing a hash map" is really a bit of a misnomer. To make sure that each item lives in the correct location you really just recreate the hash map from scratch with larger capacity.
-// Because you have to call `set()` 1 time for each item, and each set call is O(1) in the best and average case, and O(n) in the worst case, this is O(n) in the best and average case and O(n^2) in the worst case.
-
-// [f5]
-// Deleting items becomes a bit tricky with open addressing.
-// There are some clever (although complex) solutions involving tracing through and moving out-of-place items when something is removed. But the simplest solution is to not actually delete the item at all, and just put a deleted marker in the slot. Then on resize you can actually clear out all of the deleted items. This means that the hash map loads up slightly more quickly, but simplifies the code significantly.
-// The most important things to note here are the addition of a `_deleted` count, a `deleted` property in each filled slot, and the `delete()` method. This simply finds the correct slot for the key, and sets the `DELETED` flag to `true`, decreasing the length and increasing the deleted count. There are also small changes to the `_resize()` and `_findSlot()` methods to handle deleted slots correctly.
